@@ -1,6 +1,7 @@
 import React from "react";
 import Title from "./Title";
 import { tours } from "../data";
+import Tour from "./Tour";
 
 const Tours = () => {
   return (
@@ -8,6 +9,12 @@ const Tours = () => {
       <Title title="featured" subTitle="tours" />
 
       <div className="section-center featured-center">
+        {tours.map((tour) => {
+          return <Tour key={tour.id} {...tour} />;
+        })}
+      </div>
+
+      {/* <div className="section-center featured-center">
         {tours.map((tour) => {
           const { id, image, date, title, info, location, duration, cost } =
             tour;
@@ -36,7 +43,7 @@ const Tours = () => {
             </article>
           );
         })}
-      </div>
+      </div> */}
     </section>
   );
 };
